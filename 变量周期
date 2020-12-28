@@ -1,0 +1,108 @@
+/*
+2020.12.28
+C语言基础知识
+功能：静态存储与动态存储
+
+快捷注释:Ctrl+/
+取消注释:Ctrl+, 
+
+静态存储：运行期间由系统分配固定的存储空间（全局变量，static变量）
+动态存储：运行期间根据需求进行动态分配存储空间，用完之后释放这些空间（形参和auto）
+
+auto：函数调用完结束释放内存（不写默认为auto）
+static：静态局部变量，函数调用完后不释放内存，保留值，只赋值一次，赋初值的语句只调用一次，不赋值的话，系统根据不一样的类型，而默认赋值，数值型为0，字符型为'\0' 
+*/ 
+
+//#include<stdio.h>
+//
+//void print(int x)
+//{
+//	//auto int num2=20; 
+//	int num2=20; //不加auto，默认为auto 
+//	num2++;
+//	printf("num2=%d\n",num2);
+//}
+//
+//int main()
+//{
+//	int num1=10,i;
+//	for(i=0;i<10;i++)
+//	{
+//		print(num1);
+//	}
+//	
+//	return 0;	
+//}
+
+/*
+结果：
+num2=21
+num2=21
+num2=21
+num2=21
+num2=21
+num2=21
+num2=21
+num2=21
+num2=21
+num2=21 
+*/
+
+
+//static
+//#include<stdio.h>
+//
+//void print(int x)
+//{
+//	int static num2=20;  //调用完不释放内存 
+//	num2++;
+//	printf("num2=%d\n",num2); 
+//}
+//
+//int main()
+//{
+//	int num1=5,i;
+//	for(i=0;i<5;i++)
+//	{
+//		print(num1);  //函数调用 
+//	}
+//	return 0;
+//}
+/*
+结果:
+num2=21
+num2=22
+num2=23
+num2=24
+num2=25 
+*/ 
+
+
+//register
+/*
+局部变量使用频繁，可以用regist，意思是把变量放在CPU中的寄存器中，运算时可以更快的取到这个值，而不用去内存中取值
+*/ 
+//#include<stdio.h>
+//
+//void print()
+//{
+//	register int num1=1,i;
+//	for(i=0;i<1000;i++)
+//	{
+//		num1++;
+//	}
+//	printf("num1=%d\n",num1);  //num1=1001
+//}
+//
+//int main()
+//{
+//	print();
+//	return 0;
+//} 
+
+
+/*
+#include< >编译器从系统路径开始寻找，用于系统的头文件，头文件也可以用""，当使用""时，编译器首先从用户目录查找，没有找到再去系统目录中查找
+#include""从用户路径中开始寻找,一般用于把自己编写的文件包括进来
+
+*/
